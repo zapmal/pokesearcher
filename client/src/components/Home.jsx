@@ -4,11 +4,9 @@ import { AuthContext } from '../context/AuthState';
 
 const Home = (props) => {
   const { 
-    user, 
     getUser, 
     loading, 
     error,
-    isLoggedIn 
   } = useContext(AuthContext);
   const token = localStorage.getItem('token');
 
@@ -16,7 +14,7 @@ const Home = (props) => {
     getUser();
   }, []);
 
-  if (loading) return <h3>Loading...</h3>
+  if (loading && token) return <h3>Loading...</h3>
 
   if (error) return <h3>There was an error loading the dashboard.</h3>
 

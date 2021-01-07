@@ -21,10 +21,12 @@ const AuthProvider = ({ children }) => {
       if (token) {
         apiClient.get('/user')
           .then(response => {
-            dispatch({
-              type: 'AUTH_USER',
-              payload: response.data
-            });
+            if (response.status === 200) {
+              dispatch({
+                type: 'AUTH_USER',
+                payload: response.data
+              });
+            }
         });
       }
     } catch (error) {
