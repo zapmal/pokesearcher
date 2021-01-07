@@ -15,6 +15,7 @@ const AuthReducer = (state, action) => {
     case 'AUTH_LOGOUT':
       return {
         ...state,
+        user: null,
         isLoggedIn: false
       };
     case 'AUTH_ERROR':

@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     try {
       if (token) {
-        apiClient.get('/user')
+        apiClient.get('/user', { headers: { Authorization: `Bearer ${token}`}})
           .then(response => {
             if (response.status === 200) {
               dispatch({
