@@ -1,5 +1,7 @@
 # About the API
 
+Doesn't use the prefix `api`, it's just `http://localhost:8000/<route>` for requests. 
+
 ## Requirements
 
 - PHP >= 7.4.11
@@ -10,4 +12,5 @@
 - `composer install`
 - `php artisan migrate`
 - `php artisan db:seed`
+- `cp .env.example .env`
 - `php artisan serve`
