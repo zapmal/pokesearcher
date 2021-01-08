@@ -1,6 +1,6 @@
 # About the API
 
-Doesn't use the prefix `api`, it's just `http://localhost:8000/<route>` for requests. 
+Uses [passport](https://laravel.com/docs/7.x/passport) for token-based authentication, also it doesn't use the prefix `api`, it's just `http://localhost:8000/<route>` for requests. 
 
 ## Requirements
 
