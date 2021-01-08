@@ -1,4 +1,4 @@
-# AniSearcher
+# AniSearcher Client
 
 ## Configuration
 
