@@ -1,10 +1,12 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import apiClient from '../services/api';
 
 import { AuthContext } from '../context/AuthState';
 
 const Login = (props) => {
   const [values, setValues] = useState();
+  const [error, setError] = useState();
   const { login } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
@@ -15,7 +17,9 @@ const Login = (props) => {
         login(response.data.token);
         props.history.push('/');
       })
-      .catch(error => console.error(error));
+      .catch(error => {
+        setError(error.response.data.message);
+      });
   };
 
   const onChange = (event) => {
@@ -53,6 +57,16 @@ const Login = (props) => {
         />
       </div>
       <button className='btn btn-block btn-primary'>Login</button>
+
+      <p className='forgot-password text-center'>
+        Forgot your password? <Link to='/forgot'>Click here</Link>
+      </p>
+
+      {error && (
+        <div className='alert alert-danger mt-4' role='alert'>
+          {error}
+        </div>
+      )}
     </form>
     );
 };

@@ -8,6 +8,8 @@ import Home from './components/Home';
 import Navigation from './components/Navigation';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Forgot from './components/Forgot';
+import Reset from './components/Reset';
 
 import { AuthProvider } from './context/AuthState';
 
@@ -24,6 +26,8 @@ const App = () =>  {
                   <Route exact path='/' component={Home} />
                   <Route exact path='/login' component={Login} />
                   <Route exact path='/signup' component={Signup} />
+                  <Route exact path='/forgot' component={Forgot} />
+                  <Route exact path='/reset/:token' component={Reset} />
                 </Switch>
               </div>
             </div>

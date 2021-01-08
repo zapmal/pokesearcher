@@ -3,6 +3,7 @@ import apiClient from '../services/api';
 
 const Signup = (props) => {
   const [values, setValues] = useState();
+  const [error, setError] = useState();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -10,7 +11,9 @@ const Signup = (props) => {
       .then(response => {
         props.history.push('/login');
       })
-      .catch(error => console.error(error));
+      .catch(error => {
+        setError(error.response.data.message);
+      });
   };
 
   const onChange = (event) => {
@@ -21,71 +24,81 @@ const Signup = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Sign Up</h3>
+    <>
+      <form onSubmit={handleSubmit}>
+        <h3>Sign Up</h3>
 
-      <div className='form-group'>
-        <label htmlFor='firstname'>First Name</label>
-        <input 
-          id='firstname' 
-          type='text' 
-          className='form-control' 
-          placeholder='First name' 
-          name='first_name'
-          onChange={onChange}
-        />
-      </div>
+        <div className='form-group'>
+          <label htmlFor='firstname'>First Name</label>
+          <input 
+            id='firstname' 
+            type='text' 
+            className='form-control' 
+            placeholder='First name' 
+            name='first_name'
+            onChange={onChange}
+          />
+        </div>
 
-      <div className='form-group'>
-        <label htmlFor='lastname'>Last Name</label>
-        <input 
-          id='lastname' 
-          type='text' 
-          className='form-control' 
-          placeholder='Last name' 
-          name='last_name'
-          onChange={onChange}
-        />
-      </div>
+        <div className='form-group'>
+          <label htmlFor='lastname'>Last Name</label>
+          <input 
+            id='lastname' 
+            type='text' 
+            className='form-control' 
+            placeholder='Last name' 
+            name='last_name'
+            onChange={onChange}
+          />
+        </div>
 
-      <div className='form-group'>
-        <label htmlFor='email'>Email</label>
-        <input 
-          id='email' 
-          type='email' 
-          className='form-control' 
-          placeholder='Email' 
-          name='email'
-          onChange={onChange}
-        />
-      </div>
+        <div className='form-group'>
+          <label htmlFor='email'>Email</label>
+          <input 
+            id='email' 
+            type='email' 
+            className='form-control' 
+            placeholder='Email' 
+            name='email'
+            onChange={onChange}
+          />
+        </div>
 
-      <div className='form-group'>
-        <label htmlFor='password'>Password</label>
-        <input 
-          id='password' 
-          type='password' 
-          className='form-control' 
-          placeholder='Password' 
-          name='password'
-          onChange={onChange}
-        />
-      </div>
+        <div className='form-group'>
+          <label htmlFor='password'>Password</label>
+          <input 
+            id='password' 
+            type='password' 
+            className='form-control' 
+            placeholder='Password' 
+            name='password'
+            onChange={onChange}
+          />
+        </div>
 
-      <div className='form-group'>
-        <label htmlFor='password-c'>Confirm Password</label>
-        <input 
-          id='password-c' 
-          type='password' 
-          className='form-control' 
-          placeholder='Confirm your password' 
-          name='password_confirm'
-          onChange={onChange}
-        />
-      </div>
+        <div className='form-group'>
+          <label htmlFor='password-c'>Confirm Password</label>
+          <input 
+            id='password-c' 
+            type='password' 
+            className='form-control' 
+            placeholder='Confirm your password' 
+            name='password_confirm'
+            onChange={onChange}
+          />
+        </div>
 
-      <button className='btn btn-block btn-primary'>Sign Up</button>
-    </form>
+        <button className='btn btn-block btn-primary'>Sign Up</button>
+
+      </form>
+      <>
+        {error && (
+          <p className='text-danger text-center mb-0 mt-1' role='alert'>
+            {error}
+          </p>
+        )}
+      </>
+    </>
   );
 };
 
