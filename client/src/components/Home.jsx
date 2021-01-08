@@ -11,7 +11,9 @@ const Home = () => {
   } = useContext(AuthContext);
   const token = localStorage.getItem('token');
 
-  if (loading && token) return <h3>Loading...</h3>
+  if (loading && token) {
+    return <h3>Loading...</h3>
+  }
 
   if (error) return <h3>There was an error loading the dashboard.</h3>
 

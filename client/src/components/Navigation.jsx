@@ -4,16 +4,11 @@ import { Link, withRouter } from 'react-router-dom';
 import { AuthContext } from '../context/AuthState';
 
 const Navigation = (props) => {
-  const { isLoggedIn, getUser, logout, loading } = useContext(AuthContext);
-  const token = localStorage.getItem('token');
+  const { isLoggedIn, getUser, logout } = useContext(AuthContext);
 
   useEffect(() => {
     getUser();
   }, [props.location.pathname]);
-
-  if (loading && token) {
-    return <p>Loading...</p>
-  }
 
   return ( 
     <nav className='navbar navbar-expand navbar-light fixed-top'>
@@ -25,7 +20,7 @@ const Navigation = (props) => {
             <ul className='navbar-nav ml-auto'>
               <li className='nav-item'>
                 <Link 
-                  to='/login' 
+                  to='/' 
                   onClick={() => { 
                     logout();
                     props.history.push('/login');
