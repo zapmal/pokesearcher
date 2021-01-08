@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import apiClient from '../services/api';
 
-const Signup = () => {
+const Signup = (props) => {
   const [values, setValues] = useState();
 
-  // On successful register redirect to /home and 
-  // set isLoggedIn to true in the context
   const handleSubmit = (event) => {
     event.preventDefault();
     apiClient.post('/register', values)
-      .then(response => console.log(response))
+      .then(response => {
+        props.history.push('/login');
+      })
       .catch(error => console.error(error));
   };
 
