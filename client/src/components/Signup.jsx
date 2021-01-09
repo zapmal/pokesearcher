@@ -24,7 +24,7 @@ const Signup = (props) => {
   };
 
   return (
-    <>
+    <div className='wrapper'>
       <form onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
 
@@ -98,7 +98,7 @@ const Signup = (props) => {
           </p>
         )}
       </>
-    </>
+    </div>
   );
 };
 

@@ -34,47 +34,49 @@ const Reset = (props) => {
 
   return isReseted 
     ? (
-      <>
+      <div className='wrapper'>
         <h4 className='mb-3 text-center'>Password successfully changed</h4>
         <p className='text-center'>Go and <Link to='/login'>login</Link> to start!</p>
-      </>
+      </div>
     )
     : (
-      <form onSubmit={handleSubmit}>
-        <h3 className='mb-4'>Reset your password</h3>
+      <div className='wrapper'>
+        <form onSubmit={handleSubmit}>
+          <h3 className='mb-4'>Reset your password</h3>
 
-        <div className='form-group'>
-          <label htmlFor='password'>New Password</label>
-          <input 
-            id='password' 
-            type='password' 
-            className='form-control' 
-            placeholder='Password' 
-            name='password'
-            onChange={onChange}
-          />
-        </div>
-
-        <div className='form-group'>
-          <label htmlFor='password-c'>Confirm your new password</label>
-          <input 
-            id='password-c' 
-            type='password' 
-            className='form-control' 
-            placeholder='Confirm your password' 
-            name='password_confirm'
-            onChange={onChange}
-          />
-        </div>
-
-        <button className='btn btn-block btn-primary'>Save new password</button>
-
-        {error && (
-          <div className='alert alert-danger mt-4' role='alert'>
-            {error}
+          <div className='form-group'>
+            <label htmlFor='password'>New Password</label>
+            <input 
+              id='password' 
+              type='password' 
+              className='form-control' 
+              placeholder='Password' 
+              name='password'
+              onChange={onChange}
+            />
           </div>
-        )}
-      </form>
+
+          <div className='form-group'>
+            <label htmlFor='password-c'>Confirm your new password</label>
+            <input 
+              id='password-c' 
+              type='password' 
+              className='form-control' 
+              placeholder='Confirm your password' 
+              name='password_confirm'
+              onChange={onChange}
+            />
+          </div>
+
+          <button className='btn btn-block btn-primary'>Save new password</button>
+
+          {error && (
+            <div className='alert alert-danger mt-4' role='alert'>
+              {error}
+            </div>
+          )}
+        </form>
+      </div>
     );
 };
 

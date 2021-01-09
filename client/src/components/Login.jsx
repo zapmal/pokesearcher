@@ -30,44 +30,46 @@ const Login = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Login</h3>
+    <div className='wrapper'>
+      <form onSubmit={handleSubmit}>
+        <h3>Login</h3>
 
-      <div className='form-group'>
-        <label htmlFor='email'>Email</label>
-        <input 
-          id='email' 
-          type='email' 
-          className='form-control' 
-          placeholder='Email' 
-          name='email'
-          onChange={onChange}
-        />
-      </div>
-
-      <div className='form-group'>
-        <label htmlFor='password'>Password</label>
-        <input 
-          id='password' 
-          type='password' 
-          className='form-control' 
-          placeholder='Password' 
-          name='password'
-          onChange={onChange}
-        />
-      </div>
-      <button className='btn btn-block btn-primary'>Login</button>
-
-      <p className='forgot-password text-center'>
-        Forgot your password? <Link to='/forgot'>Click here</Link>
-      </p>
-
-      {error && (
-        <div className='alert alert-danger mt-4' role='alert'>
-          {error}
+        <div className='form-group'>
+          <label htmlFor='email'>Email</label>
+          <input 
+            id='email' 
+            type='email' 
+            className='form-control' 
+            placeholder='Email' 
+            name='email'
+            onChange={onChange}
+          />
         </div>
-      )}
-    </form>
+
+        <div className='form-group'>
+          <label htmlFor='password'>Password</label>
+          <input 
+            id='password' 
+            type='password' 
+            className='form-control' 
+            placeholder='Password' 
+            name='password'
+            onChange={onChange}
+          />
+        </div>
+        <button className='btn btn-block btn-primary'>Login</button>
+
+        <p className='forgot-password text-center'>
+          Forgot your password? <Link to='/forgot'>Click here</Link>
+        </p>
+
+        {error && (
+          <div className='alert alert-danger mt-4' role='alert'>
+            {error}
+          </div>
+        )}
+      </form>
+    </div>
     );
 };
 

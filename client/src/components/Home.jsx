@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../context/AuthState';
 
+import Search from './Search';
+
 const Home = () => {
   const { 
     isLoggedIn,
@@ -18,15 +20,15 @@ const Home = () => {
   if (error) return <h3>There was an error loading the dashboard.</h3>
 
   return isLoggedIn 
-    ? <h3>Welcome back.</h3> 
+    ? <h3>Hello buddy</h3>
     : (
-      <>
+      <div className='wrapper'>
         <h3>Welcome to AniSearcher</h3>
         <p className='text-center mt-3'>
-          You can <Link to='/login'>Login</Link> or <Link to='/signup'>create</Link> a new account
+          You can <Link to='/login'>login</Link> or <Link to='/signup'>create</Link> a new account
           and start searching your favorite mangas and animes.
         </p>
-      </>
+      </div>
     )
 };
 
