@@ -40,7 +40,8 @@ html,
 }
 
 .navbar-light .navbar-brand,
-.navbar-light .navbar-nav .nav-link {
+.navbar-light .navbar-nav .nav-link, 
+.navbar-light .navbar-nav .nav-link:focus {
   color: #ffffff;
   transition: all 300ms;
 }
