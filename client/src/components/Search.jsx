@@ -40,13 +40,13 @@ const SearchInformation = () => {
       <h3 className='mb-2 mt-0'>Searcher</h3>
       <p className='text-muted text-center mt-1 mb-2'>Information about the search.</p>
       <small className={smallTextClassNames}>
-        - Shows with similar names will appear in the search result.
+        - 
       </small>
       <small className={smallTextClassNames}>
-        - An empty search will return the top 10 (seasonal) animes.
+        - 
       </small>
       <small className={smallTextClassNames}>
-        - All kinds of search are capped at 20 results.
+        - 
       </small>
     </>
   );

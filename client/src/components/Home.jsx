@@ -34,7 +34,7 @@ const Home = () => {
         <h3>Welcome to AniSearcher</h3>
         <p className='text-center mt-3'>
           You can <Link to='/login'>login</Link> or <Link to='/signup'>create</Link> a new account
-          and start searching your favorite mangas and animes.
+          and start searching your favorite pokemons.
         </p>
       </div>
     )
