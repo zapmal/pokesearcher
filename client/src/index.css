@@ -40,6 +40,7 @@ html,
 }
 
 .navbar-light .navbar-brand,
+.navbar-light .navbar-brand:focus,
 .navbar-light .navbar-nav .nav-link, 
 .navbar-light .navbar-nav .nav-link:focus {
   color: #ffffff;
