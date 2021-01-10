@@ -1,4 +1,4 @@
-# AniSearcher Client
+# PokeSearcher Client
 
 ## Configuration
 

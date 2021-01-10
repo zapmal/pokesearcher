@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import pokedex from '../services/pokeapi';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -6,6 +7,8 @@ const Search = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(searchTerm);
+    console.log(pokedex);
 
     setResult(searchTerm);
   };
@@ -20,7 +23,7 @@ const Search = () => {
           <input 
             type='text' 
             className='form-control mt-2' 
-            placeholder='Danganronpa, Ace Attorney, etc.' 
+            placeholder='Charizard, Lucario, etc.' 
             onChange={(event) => setSearchTerm(event.target.value)}
           />
         </div>
