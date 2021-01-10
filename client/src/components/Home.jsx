@@ -14,13 +14,21 @@ const Home = () => {
   const token = localStorage.getItem('token');
 
   if (loading && token) {
-    return <h3>Loading...</h3>
+    return (
+      <div className='wrapper'>
+        <h3>Loading...</h3>
+      </div>
+    );
   }
 
   if (error) return <h3>There was an error loading the dashboard.</h3>
 
   return isLoggedIn 
-    ? <h3>Hello buddy</h3>
+    ? (
+      <div className='wrapper'>
+        <h3>Hello buddy</h3>
+      </div>
+    ) 
     : (
       <div className='wrapper'>
         <h3>Welcome to AniSearcher</h3>

@@ -4,7 +4,7 @@ const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [result, setResult] = useState();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     setResult(searchTerm);
