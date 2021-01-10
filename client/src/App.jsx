@@ -32,20 +32,6 @@ const App = () =>  {
               <Route exact path='/search' component={Search} />
             </Switch>
           </div>
-
-          {/* <div className='layout'>
-            <div className='wrapper'>
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/login' component={Login} />
-                <Route exact path='/signup' component={Signup} />
-                <Route exact path='/forgot' component={Forgot} />
-                <Route exact path='/reset/:token' component={Reset} />
-                <Route exact path='/search' component={SearchInformation}/>
-              </Switch>
-            </div>
-            <Route exact path='/search' component={Search} />
-          </div> */}
         </div>
       </Router>
     </AuthProvider>

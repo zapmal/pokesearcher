@@ -13,5 +13,5 @@ Uses [passport](https://laravel.com/docs/7.x/passport) for token-based authentic
 - `php artisan migrate`
 - `php artisan db:seed`
 - `cp .env.example .env`
-- Fill all the `DB` related fields (username, password, database) and the mail ones (username, password, from adress, from name).
+- Fill all the `DB` related fields (username, password, database) and the `MAIL` ones (username, password, from adress, from name).
 - `php artisan serve`

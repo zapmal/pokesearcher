@@ -71,7 +71,8 @@ html,
 
 /* this is temporary */
 .search {
-  margin-bottom: 15rem;
+  width: 900px;
+  margin-top: 4rem;
 }
 
 .layout .form-control:focus {
@@ -113,4 +114,8 @@ html,
 .poke-link:focus,
 .poke-link:hover {
   color: #d41f37;
+}
+
+.poke-result {
+  border-top: 1px solid lightgray;
 }

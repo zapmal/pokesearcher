@@ -7,10 +7,15 @@ const Search = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(searchTerm);
-    console.log(pokedex);
 
-    setResult(searchTerm);
+    const pokemon = await pokedex.getPokemonByName(searchTerm);
+    console.log(pokemon);
+
+    if (!pokemon) {
+      setResult(await pokedex.getPokemonByName('psyduck'));
+    } else {
+      setResult(pokemon);
+    }
   };
 
   return (
@@ -28,10 +33,12 @@ const Search = () => {
           />
         </div>
 
-        <button className='btn btn-block btn-danger'>Search</button>
+        <div className='text-right'>
+          <button className='btn text-right btn-danger'>Search</button>
+        </div>
       </form>
 
-      {result && <SearchResults />}
+      {result && <SearchResult pokemon={result}/>}
     </div>
   );
 };
@@ -40,26 +47,28 @@ const SearchInformation = () => {
   const smallTextClassNames = 'form-text text-muted text-left mb-1';
   return (
     <>
-      <h3 className='mb-2 mt-0'>Searcher</h3>
-      <p className='text-muted text-center mt-1 mb-2'>Information about the search.</p>
+      <h3 className='mb-2 mt-0'><span className='poke-info'>Poke</span>Search</h3>
+      <p className='text-muted text-left mt-1 mb-2'>Information about the search.</p>
       <small className={smallTextClassNames}>
-        - 
-      </small>
-      <small className={smallTextClassNames}>
-        - 
-      </small>
-      <small className={smallTextClassNames}>
-        - 
+        - Huh, looks like we got nothing to tell you, start searching!
       </small>
     </>
   );
 };
 
-const SearchResults = (props) => {
+const SearchResult = ({ pokemon }) => {
+  const isDefault = pokemon.name === 'psyduck' ? true : false;
   return (
-    <div className='inner'>
-      <p>1</p>
-    </div>
+    <>
+      <p className='text-muted text-center mt-3 mb-0'>
+        {isDefault 
+          ? 'You didn\'t provide a name, so we gave you a nice Psyduck!' 
+          : 'We found it!'}  
+      </p>
+      <div className='poke-result mt-3'>
+        <h3 className='mt-3'>{pokemon.name}</h3>
+      </div>
+    </>
   );
 };
 
