@@ -68,7 +68,7 @@ const Reset = (props) => {
             />
           </div>
 
-          <button className='btn btn-block btn-primary'>Save new password</button>
+          <button className='btn btn-block btn-danger'>Save new password</button>
 
           {error && (
             <div className='alert alert-danger mt-4' role='alert'>

@@ -57,7 +57,7 @@ const Login = (props) => {
             onChange={onChange}
           />
         </div>
-        <button className='btn btn-block btn-primary'>Login</button>
+        <button className='btn btn-block btn-danger'>Login</button>
 
         <p className='forgot-password text-center'>
           Forgot your password? <Link to='/forgot'>Click here</Link>

@@ -88,7 +88,7 @@ const Signup = (props) => {
           />
         </div>
 
-        <button className='btn btn-block btn-primary'>Sign Up</button>
+        <button className='btn btn-block btn-danger'>Sign Up</button>
 
       </form>
       <>

@@ -25,7 +25,7 @@ const Search = () => {
           />
         </div>
 
-        <button className='btn btn-block btn-primary'>Search</button>
+        <button className='btn btn-block btn-danger'>Search</button>
       </form>
 
       {result && <SearchResults />}

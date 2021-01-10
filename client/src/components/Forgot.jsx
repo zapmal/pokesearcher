@@ -38,7 +38,7 @@ const Forgot = () => {
           />
         </div>
 
-        <button className='btn btn-block btn-primary'>Send</button>
+        <button className='btn btn-block btn-danger'>Send</button>
 
         {status.message && (
           <div className={status.cls} role='alert'>

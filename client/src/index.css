@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #1C8EF9 !important;
+  /* background: #f91c5e !important; */
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -35,8 +35,21 @@ html,
 }
 
 .navbar-light {
-  background-color: #ffffff;
+  background-color: #f91c5e;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color: #ffffff;
+  transition: all 300ms;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-brand:hover {
+  color: #ffffff;
+  font-weight: bold;
+  transform: scale(1.1);
 }
 
 .layout {
@@ -59,7 +72,7 @@ html,
 }
 
 .layout .form-control:focus {
-  border-color: #167bff;
+  border-color: #f91c39;
   box-shadow: none;
 }
 
@@ -83,5 +96,18 @@ html,
 }
 
 .forgot-password a {
-  color: #167bff;
+  color: #d41f37;
+}
+
+.poke-info {
+  color: #f91c5e;
+}
+
+.poke-link {
+  color: #f91c5e;
+}
+
+.poke-link:focus,
+.poke-link:hover {
+  color: #d41f37;
 }
