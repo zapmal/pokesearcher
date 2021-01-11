@@ -5,7 +5,6 @@
 }
 
 body {
-  /* background: #f91c5e !important; */
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -71,7 +70,7 @@ html,
 
 /* this is temporary */
 .search {
-  width: 900px;
+  width: 100%;
   margin-top: 4rem;
 }
 
@@ -118,4 +117,6 @@ html,
 
 .poke-result {
   border-top: 1px solid lightgray;
+  width: 450px;
+  margin: 0 auto;
 }

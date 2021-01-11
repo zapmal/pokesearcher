@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../context/AuthState';
 
-import Search from './Search';
-
 const Home = () => {
   const { 
     isLoggedIn,
