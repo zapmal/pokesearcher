@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import SearchForm from './SearchForm';
 import SearchResult from './SearchResult';
 
-const HocSearch = () => {
+const Search = () => {
   const [result, setResult] = useState('');
 
   return (
@@ -14,4 +14,4 @@ const HocSearch = () => {
   );
 };
 
-export default HocSearch;
+export default Search;

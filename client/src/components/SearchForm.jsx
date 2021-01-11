@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import pokedex from '../services/pokeapi';
 
-const SearchForm = (props) => {
+const SearchForm = ({ setResult }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const pokemon = await pokedex.getPokemonByName(searchTerm);
-    console.log(pokemon);
+    try {
+      const pokemon = await pokedex.getPokemonByName(searchTerm.toLowerCase());
 
-    if (!pokemon) {
-      props.setResult(await pokedex.getPokemonByName('psyduck'));
-    } else {
-      props.setResult(pokemon);
+      if (!pokemon) {
+        setResult(await pokedex.getPokemonByName('psyduck'));
+      } else {
+        setResult(pokemon);
+      }
+    } catch (error) {
+      setResult(await pokedex.getPokemonByName('psyduck'));
     }
   };
 
@@ -47,7 +50,8 @@ const SearchInformation = () => {
       <h3 className='mb-2 mt-0'><span className='poke-info'>Poke</span>Search</h3>
       <p className='text-muted text-left mt-1 mb-2'>Information about the search.</p>
       <small className={smallTextClassNames}>
-        - If you don't provide a name (that is, an empty search) we'll return the best pokemon, ever.
+        - If you <span className='text-danger'>don't provide a name</span>, 
+        or if you <span className='text-danger'>provide a wrong one</span>, we'll return the best pokemon, ever.
       </small>
     </>
   );
