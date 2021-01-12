@@ -9,7 +9,7 @@ const Search = () => {
   return (
     <>
       <SearchForm setResult={setResult} />
-      <SearchResult result={result}/>
+      <SearchResult pokemon={result.pokemon} species={result.species} />
     </>
   );
 };

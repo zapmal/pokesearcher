@@ -8,15 +8,31 @@ const SearchForm = ({ setResult }) => {
     event.preventDefault();
 
     try {
-      const pokemon = await pokedex.getPokemonByName(searchTerm.toLowerCase());
+      if (!searchTerm) {
+        const defaultPokemon = await pokedex.getPokemonByName('psyduck');
+        const defaultSpecies = await pokedex.getPokemonSpeciesByName(defaultPokemon.name);
 
-      if (!pokemon) {
-        setResult(await pokedex.getPokemonByName('psyduck'));
+        setResult({
+          pokemon: defaultPokemon,
+          species: defaultSpecies
+        });
       } else {
-        setResult(pokemon);
+        const pokemon = await pokedex.getPokemonByName(searchTerm.toLowerCase());
+        const species = await pokedex.getPokemonSpeciesByName(pokemon.name);
+
+        setResult({
+          pokemon,
+          species
+        });
       }
     } catch (error) {
-      setResult(await pokedex.getPokemonByName('psyduck'));
+      const errorPokemon = await pokedex.getPokemonByName('pikachu');
+      const errorSpecies = await pokedex.getPokemonSpeciesByName(errorPokemon.name);
+
+      setResult({
+        pokemon: errorPokemon,
+        species: errorSpecies
+      });
     }
   };
 
@@ -51,7 +67,7 @@ const SearchInformation = () => {
       <p className='text-muted text-left mt-1 mb-2'>Information about the search.</p>
       <small className={smallTextClassNames}>
         - If you <span className='text-danger'>don't provide a name</span>, 
-        or if you <span className='text-danger'>provide a wrong one</span>, we'll return the best pokemon, ever.
+        or if you <span className='text-danger'>provide a wrong one</span>, we'll return you the best of the best. 
       </small>
     </>
   );

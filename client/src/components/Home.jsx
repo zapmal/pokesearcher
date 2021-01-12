@@ -25,6 +25,7 @@ const Home = () => {
     ? (
       <div className='wrapper'>
         <h3>Hello buddy</h3>
+        <Link to='/search'>Search</Link>
       </div>
     ) 
     : (
