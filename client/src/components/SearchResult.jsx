@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import pokedex from '../services/pokeapi';
 
-import CustomLabel from './CustomLabel';
+import HalfColorizedLabel from './HalfColorizedLabel';
+import OfficialArtwork from './OfficialArtwork';
 
 import capitalize from '../utils/capitalize';
 import captureRate from '../utils/captureRate';
@@ -15,16 +16,11 @@ const SearchResult = ({ pokemon, species }) => {
     ? (
       <div className='poke-result-container'>
         <div className='poke-result mt-3 '>
-          <h4>
-            <CustomLabel color={species.color.name}>
-              {pokemon.name.slice(0, Math.floor(pokemon.name.length / 2)).toUpperCase()}
-            </CustomLabel>
-            {pokemon.name.slice(Math.floor(pokemon.name.length / 2)).toUpperCase()}
-          </h4>
+          <HalfColorizedLabel text={pokemon.name} color={species.color.name} />
         </div>
 
         <div className='poke-result'>
-          <OfficialArtwork pokemonID={pokemon.id} />
+          <OfficialArtwork pokemonID={pokemon.id} width='250px' />
         </div>
 
         <ul className='list-group list-group-flush'>
@@ -115,12 +111,6 @@ const SearchResult = ({ pokemon, species }) => {
 };
 
 
-const OfficialArtwork = ({ pokemonID }) => {
-  const imagesEndpoint = 'https://pokeres.bastionbot.org/images/pokemon';
-  const source = `${imagesEndpoint}/${pokemonID}.png`
-
-  return <img src={source} alt={pokemonID} width='250px' />
-};
 
 const AbilityDescription = ({ name }) => {
   const [description, setDescription] = useState('');

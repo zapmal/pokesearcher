@@ -5,7 +5,7 @@ import './bootstrap.min.css';
 import './index.css';
 
 import Home from './components/Home';
-import PokemonOfTheDay from './components/PokemonOfTheDay';
+import RandomPokemon from './components/RandomPokemon';
 import Recommendation from './components/Recommendation';
 import Navigation from './components/Navigation';
 import Login from './components/Login';
@@ -35,7 +35,7 @@ const App = () =>  {
           </div>
         </div>
 
-        <PokemonOfTheDay />
+        <RandomPokemon />
         <Recommendation />
       </Router>
     </AuthProvider>
