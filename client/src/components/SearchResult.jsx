@@ -105,7 +105,7 @@ const SearchResult = ({ pokemon, species }) => {
     ) 
     : (
       <p className='text-muted text-center mt-1 mb-0'>
-        Start searching!
+        Click that button, and start!
       </p>
     );
 };

@@ -16,16 +16,22 @@ const RandomPokemon = () => {
     const pokemonID = Math.floor(Math.random() * ((AMOUNT_OF_POKEMONS + 1) - 1) + 1);
     console.log(pokemonID);
 
-    const pokemon = await pokedex.getPokemonByName(pokemonID);
-    const species = await pokedex.getPokemonSpeciesByName(pokemon.name);
+    try {
+      const pokemon = await pokedex.getPokemonByName(pokemonID);
+      const species = await pokedex.getPokemonSpeciesByName(pokemon.name);
 
-    return { data: pokemon, species };
+      return { data: pokemon, species };
+    } catch (error) {
+      const pokemon = await pokedex.getPokemonByName('psyduck');
+      const species = await pokedex.getPokemonSpeciesByName(pokemon.name);
+
+      return { data: pokemon, species };
+    }
   };
 
   useEffect(() => {
     getRandomPokemon().then(pokemon => { 
       setPokemon(pokemon);
-      console.log(pokemon);
       setIsLoading(false);
     });
   }, []);
@@ -38,13 +44,13 @@ const RandomPokemon = () => {
           <>
             <HalfColorizedLabel text={pokemon.data.name} color={pokemon.species.color.name} />
             <OfficialArtwork pokemonID={pokemon.data.id} width='150px'/>
-            <div className='mt-1'>
+            <div className='mt-1 scale'>
               <small className='text-muted'>Pokeball capture rate: {captureRate(pokemon.species.capture_rate).pokeball}%</small>
             </div>
-            <div>
+            <div className='scale'>
               <small className='text-muted'>Greatball capture rate: {captureRate(pokemon.species.capture_rate).greatball}%</small>
             </div>
-            <div>
+            <div className='scale'>
               <small className='text-muted'>Any other ball capture rate: {captureRate(pokemon.species.capture_rate).other}%</small>
             </div>
           </>

@@ -118,6 +118,14 @@ html,
   width: 600px;
 }
 
+.btn a {
+  color: #ffffff;
+}
+
+.btn a:hover {
+  text-decoration: none;
+}
+
 .poke-result {
   width: 450px;
   margin: 0 auto;
@@ -158,4 +166,12 @@ html,
   display: flex;
   justify-content: center;
   border-bottom: 1px solid lightgray;
+}
+
+.scale {
+  transition: all 200ms;
+}
+
+.scale:hover {
+  scale: 1.15;
 }

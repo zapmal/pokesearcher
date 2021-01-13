@@ -18,7 +18,7 @@ const Login = (props) => {
         props.history.push('/');
       })
       .catch(error => {
-        setError(error.response.data.message);
+        setError(error.response ? error.response.data.message : 'Something weird happened.');
       });
   };
 

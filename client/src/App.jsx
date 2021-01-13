@@ -6,7 +6,6 @@ import './index.css';
 
 import Home from './components/Home';
 import RandomPokemon from './components/RandomPokemon';
-import Recommendation from './components/Recommendation';
 import Navigation from './components/Navigation';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -36,7 +35,6 @@ const App = () =>  {
         </div>
 
         <RandomPokemon />
-        <Recommendation />
       </Router>
     </AuthProvider>
   );
