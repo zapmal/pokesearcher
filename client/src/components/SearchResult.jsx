@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import pokedex from '../services/pokeapi';
+
+import CustomLabel from './CustomLabel';
+
 import capitalize from '../utils/capitalize';
+import captureRate from '../utils/captureRate';
 
 const SearchResult = ({ pokemon, species }) => {
 
@@ -12,7 +16,10 @@ const SearchResult = ({ pokemon, species }) => {
       <div className='poke-result-container'>
         <div className='poke-result mt-3 '>
           <h4>
-            {pokemon.name.toUpperCase()}
+            <CustomLabel color={species.color.name}>
+              {pokemon.name.slice(0, Math.floor(pokemon.name.length / 2)).toUpperCase()}
+            </CustomLabel>
+            {pokemon.name.slice(Math.floor(pokemon.name.length / 2)).toUpperCase()}
           </h4>
         </div>
 
@@ -79,6 +86,23 @@ const SearchResult = ({ pokemon, species }) => {
           </li>
 
           <li className='list-group-item'>
+            <strong className='poke-info'>Capture rate: </strong>{species.capture_rate}
+            <ul className='list-group list-group-flush'>
+              <li className='list-group-item'>
+                Using Pokeballs: {captureRate(species.capture_rate).pokeball}%
+              </li>
+
+              <li className='list-group-item'>
+                Using Greatball: {captureRate(species.capture_rate).greatball}%
+              </li>
+
+              <li className='list-group-item'>
+                Using any other ball: {captureRate(species.capture_rate).other}%
+              </li>
+            </ul>
+          </li>
+
+          <li className='list-group-item'>
           </li>
         </ul>
       </div>
@@ -89,6 +113,7 @@ const SearchResult = ({ pokemon, species }) => {
       </p>
     );
 };
+
 
 const OfficialArtwork = ({ pokemonID }) => {
   const imagesEndpoint = 'https://pokeres.bastionbot.org/images/pokemon';

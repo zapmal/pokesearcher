@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
-
 * {
   box-sizing: border-box;
 }
 
 body {
+  height: 100%;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -124,6 +124,33 @@ html,
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.pokemon-of-the-day {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 350px;
+  height: 250px;
+}
+
+.recommendation {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  width: 320px;
+  height: 160px;
+  padding: 20px;
+  background-color: #f91c5e;
+  color: #ffffff;
+}
+
+.recommendation h4 {
+  transition: all 500ms;
+}
+
+.recommendation h4:hover {
+  scale: 1.1;
 }
 
 .separation-line {
