@@ -127,7 +127,13 @@ const AbilityDescription = ({ name }) => {
 
   useEffect(() => {
     pokedex.getAbilityByName(name)
-      .then(abilityInformation => setDescription(abilityInformation.effect_entries[1].effect));
+      .then(abilities => {
+        const englishAbilities = abilities
+          .effect_entries
+          .filter(entry => entry.language.name === 'en');
+        
+        setDescription(englishAbilities[0].effect);
+      });
   }, []);
 
   return description;
