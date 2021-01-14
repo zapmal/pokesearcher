@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 
 import Loading from './Loading';
+import LinkAsButton from './LinkAsButton';
 
 import { AuthContext } from '../context/AuthState';
 
@@ -31,9 +31,7 @@ const Home = () => {
         <div className='text-center mt-2'>
           <p>Welcome again to PokeSearcher!</p>
 
-          <div className='text-center'>
-          <Link className='btn btn-danger btn-block' to='/search'>Start searching now</Link>
-          </div>
+          <LinkAsButton to='/search' content='Start searching now' />
         </div>
       </div>
     ) 
@@ -47,20 +45,17 @@ const Home = () => {
         </p>
 
         <p className='text-center mt-3'>
-          Here you can bookmark, search and see detailed data, and also see recommendations exclusively for you!
+          Here you can mark as favorite, search and see detailed data and also be able
+          to see your search history.
         </p>
 
-        <div className='text-center'>
-          <Link className='btn btn-danger btn-block' to='/login'>Login</Link>
-        </div>
+        <LinkAsButton to='/login' content='Login' />
 
         <div className='text-center my-2'>
           <p className='m-0'>OR</p>
         </div>
 
-        <div className='text-center'>
-          <Link className='btn btn-danger btn-block' to='/register'>Register</Link>
-        </div>
+        <LinkAsButton to='/register' content='Register' />
       </div>
     )
 };
