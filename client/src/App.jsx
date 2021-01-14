@@ -14,6 +14,7 @@ import Reset from './components/Reset';
 import Search from './components/Search';
 
 import { AuthProvider } from './context/AuthState';
+import PrivateRoute from './components/PrivateRoute';
 
 const App = () =>  {
   return (
@@ -25,7 +26,7 @@ const App = () =>  {
           <div className='layout'>
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route exact path='/search' component={Search} />
+              <PrivateRoute exact path='/search' component={Search} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/signup' component={Signup} />
               <Route exact path='/forgot' component={Forgot} />
