@@ -17,7 +17,6 @@ const Reset = (props) => {
 
     apiClient.post('/reset', data)
       .then(response => {
-        console.log(response);
         setIsReseted(true);
       })
       .catch(error => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import pokedex from '../services/pokeapi';
 
-const SearchForm = ({ setResult }) => {
+const SearchForm = ({ setResult, history, setHistory }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = async (event) => {
@@ -24,6 +24,7 @@ const SearchForm = ({ setResult }) => {
           pokemon,
           species
         });
+        setHistory(pokemon.name);
       }
     } catch (error) {
       const errorPokemon = await pokedex.getPokemonByName('pikachu');

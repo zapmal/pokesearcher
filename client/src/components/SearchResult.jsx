@@ -9,8 +9,8 @@ import captureRate from '../utils/captureRate';
 
 const SearchResult = ({ pokemon, species }) => {
 
-  console.log(pokemon);
-  console.log(species);
+  // console.log(pokemon);
+  // console.log(species);
 
   return pokemon 
     ? (

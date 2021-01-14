@@ -1,28 +1,39 @@
-import React, { useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import pokedex from '../services/pokeapi';
+import React from 'react';
 
-import { AuthContext } from '../context/AuthState';
+import capitalize from '../utils/capitalize';
 
-const SearchHistory = () => {
-  const { isLoggedIn } = useContext(AuthContext);
+const SearchHistory = ({ history }) => {
 
-  return isLoggedIn 
-    ? (
-      <div className='wrapper recommendation text-center'>
-        <h4 className='mt-0 mb-1'>Search History</h4>
-        <p className=''>
-        </p>
-      </div>
-    )
-    : (
-      <div className='wrapper recommendation text-center'>
-        <h4 className='mt-0 mb-1 '>Search History</h4>
-        <p className=''>
-          
-        </p>
-      </div>
-    );
+  const sortedHistory = history.reverse();
+  
+  return (
+    <div className='wrapper history-wrapper text-center'>
+      <h4 className='mt-0 mb-1 '>Search History</h4>
+      <p className='my-1 text-center'>
+        We only collect your latest <strong>five</strong> searches.
+      </p>
+      <ul className='history-list'>
+        {sortedHistory.map((item, index) => (
+          <li key={index} className='history-item'>
+            {index === 0 
+              ? (
+                <>
+                  <strong>{capitalize(item)} </strong>
+                  <small className='text-white'> - Most recent.</small> 
+                </>
+              )
+              : (
+                capitalize(item)
+              )
+            }
+          </li>
+        ))}
+      </ul>
+      <small className='m-0 text-center'>
+        Your search history gets deleted if you delete your browser's history or cache.
+      </small>
+    </div>
+  );
 };
 
 export default SearchHistory;

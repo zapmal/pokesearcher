@@ -143,22 +143,22 @@ html,
   height: 300px;
 }
 
-.recommendation {
+.history-wrapper {
   position: absolute;
   top: 80px;
   left: 20px;
   width: 320px;
-  height: 160px;
+  height: 245px;
   padding: 20px;
   background-color: #f91c5e;
   color: #ffffff;
 }
 
-.recommendation h4 {
+.history-wrapper h4 {
   transition: all 500ms;
 }
 
-.recommendation h4:hover {
+.history-wrapper h4:hover {
   scale: 1.1;
 }
 
@@ -174,4 +174,15 @@ html,
 
 .scale:hover {
   scale: 1.15;
+}
+
+.history-list {
+  text-align: left;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.history-item {
+  padding: 0 15px;
+  display: block;
 }
