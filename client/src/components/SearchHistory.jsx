@@ -12,23 +12,32 @@ const SearchHistory = ({ history }) => {
       <p className='my-1 text-center'>
         We only collect your latest <strong>five</strong> searches.
       </p>
-      <ul className='history-list'>
-        {sortedHistory.map((item, index) => (
-          <li key={index} className='history-item'>
-            {index === 0 
-              ? (
-                <>
-                  <strong>{capitalize(item)} </strong>
-                  <small className='text-white'> - Most recent.</small> 
-                </>
-              )
-              : (
-                capitalize(item)
-              )
-            }
-          </li>
-        ))}
-      </ul>
+      {sortedHistory.length 
+        ? (
+          <ul className='history-list'>
+            {sortedHistory.map((item, index) => (
+              <li key={index} className='history-item'>
+                {index === 0 
+                  ? (
+                    <>
+                      <strong>{capitalize(item)} </strong>
+                      <small className='text-white'> - Most recent.</small> 
+                    </>
+                  )
+                  : (
+                    capitalize(item)
+                  )
+                }
+              </li>
+            ))}
+          </ul>
+        )
+        : (
+          <p className='text-center my-2'>
+            You'll see your latest searches here.
+          </p>
+        )
+      }
       <small className='m-0 text-center'>
         Your search history gets deleted if you delete your browser's history or cache.
       </small>
