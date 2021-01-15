@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom';
 
 import { AuthContext } from '../context/AuthState';
 
+import logo from '../images/logo.png';
+
 const Navigation = (props) => {
   const { isLoggedIn, getUser, logout } = useContext(AuthContext);
 
@@ -14,6 +16,7 @@ const Navigation = (props) => {
     <nav className='navbar navbar-expand navbar-light fixed-top'>
       <div className='container'>
         <Link to='/' className='navbar-brand'>Home</Link>
+        <img src={logo} alt='logo' width='40px' />
         <div className='collapse navbar-collapse'>
           {isLoggedIn 
           ? (

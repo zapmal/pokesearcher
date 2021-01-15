@@ -54,8 +54,8 @@ const RandomTrainer = (props) => {
           <h4>{capitalize(trainer.name)}</h4>
 
           {trainer.generation && (
-            <div>
-              <small className='text-muted scale'>Generation: {trainer.generation}</small>
+            <div className='scale'>
+              <small className='text-muted'>Generation: {trainer.generation}</small>
             </div>
           )}
 
