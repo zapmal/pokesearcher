@@ -13,15 +13,21 @@ const RandomTrainer = (props) => {
   const { location } = props;
 
   const getRandomTrainer = async () => {
-    const AMOUNT_OF_TRAINERS = 726;
-    const index = Math.floor(Math.random() * ((AMOUNT_OF_TRAINERS + 1) - 1) + 1);
-
     try {
       const trainers = await apiClient.get('/trainers');
+      const AMOUNT_OF_TRAINERS = trainers.data.length;
+      const index = Math.floor(Math.random() * ((AMOUNT_OF_TRAINERS + 1) - 1) + 1);
+
+      const [name, rawGeneration] = trainers.data[index].split('-');
+      const generation = rawGeneration.replace(/[^0-9]/g, '');
+      const image = `${TRAINERS_SPRITES_ENDPOINT}/${trainers.data[index]}.png`;
+
+      console.log(image);
 
       return { 
-        name: trainers.data[index], 
-        image: `${TRAINERS_SPRITES_ENDPOINT}/${trainers.data[index]}.png`
+        name,
+        generation,
+        image,
       };
     } catch (error) {
       return {};
@@ -46,9 +52,22 @@ const RandomTrainer = (props) => {
       : (
         <>
           <h4>{capitalize(trainer.name)}</h4>
+
+          {trainer.generation && (
+            <div>
+              <small className='text-muted scale'>Generation: {trainer.generation}</small>
+            </div>
+          )}
+
           <img src={trainer.image} alt='Random Trainer' />
           <div>
-            <small className='text-muted'>A Random trainer obtained from Showdown's website.</small>
+            <small className='text-muted'>
+              A random trainer obtained from Showdown's website.
+            </small>
+            <br />
+            <small className='text-muted'>
+              Their site: <a className='poke-link' target='_blank' rel='noreferrer' href='https://play.pokemonshowdown.com/'>Pokemon Showdown</a>
+            </small>
           </div>
         </>
       )}

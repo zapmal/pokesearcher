@@ -44,18 +44,13 @@ const Home = () => {
           And also to be able of returning all information in an elegant, fast and efficient way.
         </p>
 
-        <p className='text-center mt-3'>
-          Here you can mark as favorite, search and see detailed data and also be able
-          to see your search history.
-        </p>
-
         <LinkAsButton to='/login' content='Login' />
 
         <div className='text-center my-2'>
           <p className='m-0'>OR</p>
         </div>
 
-        <LinkAsButton to='/register' content='Register' />
+        <LinkAsButton to='/signup' content='Register' />
       </div>
     )
 };
