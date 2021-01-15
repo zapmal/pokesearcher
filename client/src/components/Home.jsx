@@ -10,7 +10,6 @@ const Home = () => {
     isLoggedIn,
     loading, 
     error,
-    user,
   } = useContext(AuthContext);
   const token = localStorage.getItem('token');
 

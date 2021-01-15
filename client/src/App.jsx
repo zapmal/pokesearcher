@@ -8,6 +8,7 @@ import Home from './components/Home';
 import RandomPokemon from './components/RandomPokemon';
 import RandomTrainer from './components/RandomTrainer';
 import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Forgot from './components/Forgot';
@@ -34,6 +35,7 @@ const App = () =>  {
               <Route exact path='/reset/:token' component={Reset} />
             </Switch>
           </div>
+          <Footer />
         </div>
 
         <RandomPokemon />
