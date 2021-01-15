@@ -59,7 +59,7 @@ const RandomTrainer = (props) => {
             </div>
           )}
 
-          <img src={trainer.image} alt='Random Trainer' />
+          <img src={trainer.image} alt={`Trainer ${trainer.name}`} />
           <div>
             <small className='text-muted'>
               A random trainer obtained from Showdown's website.

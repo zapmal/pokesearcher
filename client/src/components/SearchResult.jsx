@@ -6,16 +6,23 @@ import OfficialArtwork from './OfficialArtwork';
 
 import capitalize from '../utils/capitalize';
 import captureRate from '../utils/captureRate';
+import { POKEMON_CRIES_ENDPOINT } from '../config';
 
 const SearchResult = ({ pokemon, species }) => {
 
-  // console.log(pokemon);
-  // console.log(species);
+  const playPokemonCry = (pokemon) => {
+    const cry = new Audio(`${POKEMON_CRIES_ENDPOINT}/${pokemon}.mp3`);
+
+    if (!cry) return;
+
+    cry.currentTime = 0;
+    cry.play();
+  };
 
   return pokemon 
     ? (
       <div className='poke-result-container'>
-        <div className='poke-result mt-3 '>
+        <div className='poke-result mt-3'>
           <HalfColorizedLabel text={pokemon.name} color={species.color.name} />
         </div>
 
@@ -96,6 +103,11 @@ const SearchResult = ({ pokemon, species }) => {
                 Using any other ball: {captureRate(species.capture_rate).other}%
               </li>
             </ul>
+          </li>
+
+          <li className='list-group-item'>
+            <strong className='poke-info mr-3'>Cry:</strong>
+            <button className='btn btn-danger' onClick={() => playPokemonCry(pokemon.name)}>Play</button>
           </li>
 
           <li className='list-group-item'>
