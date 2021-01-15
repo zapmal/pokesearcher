@@ -8,7 +8,9 @@ const useHistory = (initialHistory = []) => {
 
   const setHistory = (history) => {
     if (storedHistory.length >= 5) {
-      const filteredHistory = [...storedHistory, history].slice(-5);
+      const filteredHistory = [...storedHistory, history].slice(-5).reverse();
+      // console.log('pre reverse', filteredHistory);
+      // console.log('post reverse', filteredHistory.reverse());
 
       setStoredHistory(filteredHistory);
     } else {

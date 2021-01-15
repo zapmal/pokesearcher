@@ -3,8 +3,6 @@ import React from 'react';
 import capitalize from '../utils/capitalize';
 
 const SearchHistory = ({ history }) => {
-
-  const sortedHistory = history.reverse();
   
   return (
     <div className='wrapper history-wrapper text-center'>
@@ -12,10 +10,10 @@ const SearchHistory = ({ history }) => {
       <p className='my-1 text-center'>
         We only collect your latest <strong>five</strong> searches.
       </p>
-      {sortedHistory.length 
+      {history.length 
         ? (
           <ul className='history-list'>
-            {sortedHistory.map((item, index) => (
+            {history.map((item, index) => (
               <li key={index} className='history-item'>
                 {index === 0 
                   ? (
