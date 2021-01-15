@@ -14,3 +14,5 @@ Route::post('/forgot', 'ForgotPasswordController@forgot');
 Route::post('/reset', 'ForgotPasswordController@reset');
 
 Route::get('/user', 'AuthController@user')->middleware('auth:api');
+
+Route::get('/trainers', 'ScrapController@scrapTrainers');

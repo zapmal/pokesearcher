@@ -15,7 +15,8 @@
         "laravel/framework": "^7.0",
         "laravel/passport": "9",
         "laravel/tinker": "^2.0",
-        "lcobucci/jwt": "3.3.3"
+        "lcobucci/jwt": "3.3.3",
+        "weidner/goutte": "1.5"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
