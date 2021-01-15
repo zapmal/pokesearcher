@@ -27,10 +27,8 @@ const Home = () => {
   return isLoggedIn 
     ? (
       <div className='wrapper'>
-        <h3>Hello, {user.first_name}.</h3>
+        <h3 className='mb-4'>Welcome again</h3>
         <div className='text-center mt-2'>
-          <p>Welcome again to PokeSearcher!</p>
-
           <LinkAsButton to='/search' content='Start searching now' />
         </div>
       </div>
