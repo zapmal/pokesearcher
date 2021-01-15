@@ -1,9 +1,9 @@
 import React from 'react';
-require('dotenv').config();
+
+import { OFFICIAL_ARTWORK_ENDPOINT } from '../config';
 
 const OfficialArtwork = ({ pokemonID, width }) => {
-  const imagesEndpoint = process.env.OFFICIAL_ARTWORK_ENDPOINT;
-  const source = `${imagesEndpoint}/${pokemonID}.png`
+  const source = `${OFFICIAL_ARTWORK_ENDPOINT}/${pokemonID}.png`
 
   return <img src={source} alt={pokemonID} width={width} />
 };
