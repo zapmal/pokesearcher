@@ -37,7 +37,7 @@ const RandomPokemon = () => {
   }, []);
 
   return (
-    <div className='wrapper text-center pokemon-of-the-day'>
+    <div className='wrapper text-center random-pokemon'>
       {isLoading 
         ? <Loading color={'#f91c5e'}/> 
         : (
