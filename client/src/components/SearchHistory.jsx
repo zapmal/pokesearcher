@@ -13,7 +13,7 @@ const SearchHistory = ({ history }) => {
       {history.length 
         ? (
           <ul className='history-list'>
-            {history.map((item, index) => (
+            {history.reverse().map((item, index) => (
               <li key={index} className='history-item'>
                 {index === 0 
                   ? (

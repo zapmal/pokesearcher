@@ -10,6 +10,9 @@ import { POKEMON_CRIES_ENDPOINT } from '../config';
 
 const SearchResult = ({ pokemon, species }) => {
 
+  // console.log(pokemon);
+  // console.log(species);
+
   const playPokemonCry = (pokemon) => {
     const cry = new Audio(`${POKEMON_CRIES_ENDPOINT}/${pokemon}.mp3`);
 
