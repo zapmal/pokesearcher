@@ -6,12 +6,16 @@ import OfficialArtwork from './OfficialArtwork';
 
 import capitalize from '../utils/capitalize';
 import captureRate from '../utils/captureRate';
+import removeHyphen from '../utils/removeHyphen';
+
 import { POKEMON_CRIES_ENDPOINT } from '../config';
 
 const SearchResult = ({ pokemon, species }) => {
 
-  // console.log(pokemon);
-  // console.log(species);
+  console.log(pokemon);
+  console.log(species);
+
+  console.log('new feature testing');
 
   const playPokemonCry = (pokemon) => {
     const cry = new Audio(`${POKEMON_CRIES_ENDPOINT}/${pokemon}.mp3`);
@@ -44,7 +48,7 @@ const SearchResult = ({ pokemon, species }) => {
             {pokemon.abilities.map((ability, index) => (
               <ul className='list-group list-group-flush' key={index}>
                 <li className='list-group-item'>
-                  <strong>{ability.ability.name.toUpperCase()} </strong>
+                  <strong>{removeHyphen(ability.ability.name.toUpperCase())} </strong>
                   <small className='text-muted'>
                     {ability.is_hidden ? '- Hidden ability.' : ''}
                   </small>
@@ -59,6 +63,11 @@ const SearchResult = ({ pokemon, species }) => {
           <li className='list-group-item'>
             <strong className='poke-info'>Base Experience: </strong>
             {pokemon.base_experience}
+          </li>
+
+          <li className='list-group-item'>
+            <strong className='poke-info'>Base Happiness: </strong>
+            {species.base_happiness}
           </li>
 
           <li className='list-group-item'>
@@ -114,6 +123,17 @@ const SearchResult = ({ pokemon, species }) => {
           </li>
 
           <li className='list-group-item'>
+            <strong className='poke-info'>Moves:</strong>
+            <ul className='list-group list-group-flush'>
+              {pokemon.moves.map((move, index) => (
+                <li className='list-group-item' key={index}>
+                  {removeHyphen(move.move.name).toUpperCase()}
+                </li>
+              ))}
+            </ul>
+          </li>
+
+          <li className='list-group-item'>
           </li>
         </ul>
       </div>
@@ -125,20 +145,24 @@ const SearchResult = ({ pokemon, species }) => {
     );
 };
 
-
-
 const AbilityDescription = ({ name }) => {
   const [description, setDescription] = useState('');
 
   useEffect(() => {
-    pokedex.getAbilityByName(name)
-      .then(abilities => {
-        const englishAbilities = abilities
-          .effect_entries
-          .filter(entry => entry.language.name === 'en');
-        
-        setDescription(englishAbilities[0].effect);
-      });
+    let isCancelled = false;
+
+    if (!isCancelled) {
+      pokedex.getAbilityByName(name)
+        .then(abilities => {
+          const englishAbilities = abilities
+            .effect_entries
+            .filter(entry => entry.language.name === 'en');
+          
+          setDescription(englishAbilities[0].effect);
+        });
+    }
+
+    return () => isCancelled = true;
   }, []);
 
   return description;
