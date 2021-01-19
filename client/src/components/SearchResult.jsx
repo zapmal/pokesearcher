@@ -149,9 +149,9 @@ const AbilityDescription = ({ name }) => {
   const [description, setDescription] = useState('');
 
   useEffect(() => {
-    let isCancelled = false;
+    let isFinished = false;
 
-    if (!isCancelled) {
+    if (!isFinished) {
       pokedex.getAbilityByName(name)
         .then(abilities => {
           const englishAbilities = abilities
@@ -162,7 +162,7 @@ const AbilityDescription = ({ name }) => {
         });
     }
 
-    return () => isCancelled = true;
+    return () => isFinished = true;
   }, []);
 
   return description;

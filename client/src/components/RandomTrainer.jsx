@@ -35,10 +35,16 @@ const RandomTrainer = (props) => {
   };
 
   useEffect(() => {
-    getRandomTrainer().then(trainers => {
-      setTrainer(trainers);
-      setIsLoading(false);
-    });
+    let isFinished = false;
+
+    if (!isFinished) {
+      getRandomTrainer().then(trainers => {
+        setTrainer(trainers);
+        setIsLoading(false);
+      });
+    }
+
+    return () => isFinished = true;
   }, []);
 
   if (location.pathname.match('/search')) {
